@@ -1,0 +1,272 @@
+---
+  namespace: network
+  objects:
+    Port:
+      id:
+        type: Integer
+        key: true
+      idx:
+        type: Integer
+        description: port idx
+      mac:
+        type: String
+        description: port mac address
+      logicname:
+        type: String
+        description: port logicname
+      physicalname:
+        type: String
+        description: port physicalname
+      bridge:
+        type: String
+      channel:
+        type: String
+      speed:
+        type: String
+      admin_status:
+        type: Integer
+      link_status:
+        type: Integer
+      mtu:
+        type: Integer
+      ref_cnt:
+        type: Integer
+      comment:
+        type: String
+    Bridge:
+      id:
+        type: Integer
+        key: true
+      idx:
+        type: Integer
+        description: bridge idx
+      mac:
+        type: String
+        description: bridge mac address
+      logicname:
+        type: String
+        description: bridge logicname
+      physicalname:
+        type: String
+        description: bridge physicalname
+      admin_status:
+        type: Integer
+      mtu:
+        type: Integer
+      ref_cnt:
+        type: Integer
+      mode:
+        type: Integer
+      port_cnt:
+        type: Integer
+      ip_cnt:
+        type: Integer
+      comment:
+        type: String
+    Bridgeip:
+      id:
+        type: Integer
+        key: true
+      logicname:
+        type: String
+        description: bridge logicname
+      ip:
+        type: String
+        description: bridge ip
+      ismngtip:
+        type: String
+    Dns:
+      id:
+        type: Integer
+        key: true
+      dns1:
+        type: String
+      dns2:
+        type: String
+      comment:
+        type: String
+    Channel:
+      id:
+        type: Integer
+        key: true
+      idx:
+        type: Integer
+        description: bridge idx
+      mac:
+        type: String
+        description: channel mac address
+      logicname:
+        type: String
+        description: channel logicname
+      physicalname:
+        type: String
+        description: channel physicalname
+      bridge:
+        type: String
+      speed:
+        type: String
+      admin_status:
+        type: Integer
+      link_status:
+        type: Integer
+      mtu:
+        type: Integer
+      ref_cnt:
+        type: Integer
+      comment:
+        type: String
+    Trunk:
+      id:
+        type: Integer
+        key: true
+      idx:
+        type: Integer
+        description: bridge idx
+      mac:
+        type: String
+        description: trunk mac address
+      flag:
+        type: Integer
+      logicname:
+        type: String
+        description: channel logicname
+      physicalname:
+        type: String
+        description: channel physicalname
+      admin_status:
+        type: Integer
+      mtu:
+        type: Integer
+      ref_cnt:
+        type: Integer
+      mode:
+        type: Integer
+      port_cnt:
+        type: Integer
+      ip_cnt:
+        type: Integer
+      comment:
+        type: String
+    Trunkip:
+      id:
+        type: Integer
+        key: true
+      logicname:
+        type: String
+      ip:
+        type: String
+      ismngtip:
+        type: String
+    Route:
+      id:
+        type: Integer
+        key: true
+      ip:
+        type: String
+      metric:
+        type: Integer
+      gateway:
+        type: String
+      ifname:
+        type: String
+    Route_ipv6:
+      id:
+        type: Integer
+        key: true
+      ip:
+        type: String
+      metric:
+        type: Integer
+      gateway:
+        type: String
+      ifname:
+        type: String
+    Proute:
+      id:
+        type: Integer
+        key: true
+      idx:
+        type: Integer
+      sip:
+        type: String
+      dip:
+        type: String
+      gip:
+        type: String
+      ifname:
+        type: String
+      version:
+        type: Integer
+    Arp:
+      id:
+        type: Integer
+        key: true
+      ip:
+        type: String
+      mac:
+        type: String
+      is_static:
+        type: Integer
+      logic_name:
+        type: String
+      res:
+        type: String
+    Remote:
+      id:
+        type: Integer
+        key: true
+      ip:
+        type: String
+      ssh:
+        type: Boolean
+      ping:
+        type: Boolean
+      web:
+        type: Boolean
+    Plink:
+      id:
+        type: Integer
+        key: true
+      name:
+        type: String
+      switch:
+        type: Integer
+      uplink:
+        type: String
+      uplinktype:
+        type: String
+      downlink:
+        type: String
+      downlinktype:
+        type: String
+  rpcs:
+    sync:
+      available_for:
+        - Port
+        - Bridge
+        - Channel
+      description: Command to sync config to db
+      input:
+      output:
+    enable:
+      available_for:
+        - Port
+        - Bridge
+        - Channel
+      description: Command to enable interface
+      input:
+        id:
+          type: Integer
+      output:
+    disable:
+      available_for:
+        - Port
+        - Bridge
+        - Channel
+      description: Command to disable interface
+      input:
+        id:
+          type: Integer
+      output:
+
+
